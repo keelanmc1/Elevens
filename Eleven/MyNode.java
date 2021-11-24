@@ -39,8 +39,7 @@ public class MyNode <T>
         }
 
 
-        public static void main(String [] args)
-        {
+        public void test(){
             MyNode<Integer> node1= new MyNode<Integer>(1);
             MyNode<Integer> node2 = new MyNode<Integer>(2);
             MyNode<Integer> node3 = new MyNode<Integer>(3);
@@ -52,8 +51,14 @@ public class MyNode <T>
             System.out.println("The value of node2 is " +node1.getNext().getData());
             System.out.println("The value of node3 is " +node1.getNext().getNext().getData());
 
+        }
 
-            }
+
+        public static void main(String [] args)
+        {
+            MyNode node = new MyNode();
+            node.test();
+        }
 
 
 }

@@ -1,7 +1,7 @@
 package Eleven;
 
 //implementation of a linked list ADT
-public class LinkedList<T>{
+public class LinkedList<T> {
     Node head;
 
     private static int size = 52;
@@ -48,7 +48,7 @@ public class LinkedList<T>{
         String str = "";
         int c = 0;
         while (currentNode != null) {
-            str += c + ". " +currentNode.data;
+            str += c + ". " + currentNode.data;
             str += "\n";
             currentNode = currentNode.next;
             c++;

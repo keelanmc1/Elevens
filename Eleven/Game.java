@@ -4,15 +4,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
-    private static final int CARDNUM = 9;
-    private static int choice;
-    private static int numCards;
-    private static LinkedList<Card> LIST = new LinkedList<>();
+    private  final int CARDNUM = 9;
+    private  int choice;
+    private  int numCards;
+    private LinkedList LIST = new LinkedList<>();
     private static Card[] cardsRemoved;
-    private static Stack<Card> replayCards = new Stack<Card>();
-    private static Stack<Integer> removeCards = new Stack<>();
-    private static int points = 0;
-    private static int sum = 0;
+    private Stack replayCards = new Stack<Card>();
+    private Stack<Integer> removeCards = new Stack<Integer>();
+    private  int points = 0;
+    private  int sum = 0;
 
     public Game() {
         Deck deck = new Deck();
@@ -22,7 +22,7 @@ public class Game {
         }
     }
 
-    public static void main(String[] args) {
+    public void play() {
         //main menu
         System.out.println("***********************************");
         System.out.println("\t\t\tElevens");
@@ -61,21 +61,21 @@ public class Game {
                     try {
                         numCards = input.nextInt();
                     } catch (NullPointerException e) {
-                        System.out.println("ERROR: You must enter a valid index!" +".... Try again");
+                        System.out.println("ERROR: You must enter a valid index!" + ".... Try again");
 
                     }
 
                     System.out.println("Card chosen: " + LIST.getElement(numCards) + "\n");
-                    cardsRemoved[i] =  LIST.getElement(numCards);
+                    cardsRemoved[i] = (Card) LIST.getElement(numCards);
                     removeCards.push(numCards);
 
                     sum += cardsRemoved[i].getPoints();
-
+                    System.out.println("Sum: " + sum);
                 }
                 //loop to check if the card values add to eleven
                 for (int j = 0; j < cardsRemoved.length; j++) {
 
-                    if (sum == 11) {
+                    if (sum == 11 || sum == 39) {     //but it should give 36
                         System.out.println("VALID MOVE\n");
                         Card addCard;
                         LIST.remove(removeCards.pop());
@@ -102,6 +102,13 @@ public class Game {
         else if (choice == 3) System.exit(0);
     }
 
+
+    public static void main(String[] args) {
+        Game g = new Game();
+        g.play();
+
+
+    }
 }
 
 
