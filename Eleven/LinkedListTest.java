@@ -1,4 +1,4 @@
-//CLASS FOR TESTING THE ADDING AND REMOVAL OF CARD ELEMENTS FROM A LINKED LIST.
+package Eleven;//CLASS FOR TESTING THE ADDING AND REMOVAL OF CARD ELEMENTS FROM A LINKED LIST.
 import java.util.Scanner;
 
 public class LinkedListTest
@@ -43,6 +43,7 @@ public class LinkedListTest
 
             System.out.println("Card removed was, " + play.getElement(remove));
              play.getElement(remove);
+            System.out.println("Index: " + remove);
             System.out.println("The card ranks is: " + play.getElement(remove).getRank()+"\n");
 
           //  play.remove(remove);

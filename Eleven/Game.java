@@ -1,10 +1,7 @@
-import sun.awt.image.ImageWatched;
+package Eleven;
 
-import java.sql.SQLOutput;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class Game {
     private static final int CARDNUM = 9;
@@ -49,7 +46,7 @@ public class Game {
         if (choice == 1)                                                                                                   //if the choice is one, the program will print 9 new cards from the new for user to choose
         {
             while (LIST.getSize() >0) {
-                System.out.println("Creating the Deck......\n\n " + LIST.printList(LIST));
+                System.out.println("Creating the Deck......\n\n" + LIST.printList(LIST));
                 System.out.println("Current deck size: " + LIST.getSize() + "\n");
 
                 System.out.println("How many cards would you like to remove? ");

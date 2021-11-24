@@ -1,4 +1,7 @@
+package Eleven;
+
 import java.util.Scanner;
+
 
 // TEST TO SEE IF CARDS IN DECK WILL PRINT: ALSO TEST REMOVE AND ADD OPERATIONS
 public class DeckTest
