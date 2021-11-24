@@ -12,7 +12,7 @@ public class Game {
     private static Stack<Card> replayCards = new Stack<Card>();
     private static Stack<Integer> removeCards = new Stack<>();
     private static int points = 0;
-    private static int sum =0;
+    private static int sum = 0;
 
     public Game() {
         Deck deck = new Deck();
@@ -43,15 +43,15 @@ public class Game {
         System.out.print("\n");
         Game game = new Game();
 
-        if (choice == 1)                                                                                                   //if the choice is one, the program will print 9 new cards from the new for user to choose
+        if (choice == 1)//if the choice is one, the program will print 9 new cards from the new for user to choose
         {
-            while (LIST.getSize() >0) {
-                System.out.println("Creating the Deck......\n\n" + LIST.printList(LIST));
-                System.out.println("Current deck size: " + LIST.getSize() + "\n");
+            while (LIST.getSize() > 0) { // LIST == BOARD
+                System.out.println("Creating the Deck......\n\n" + LIST.printList(LIST)); //print Board
+                System.out.println("Current deck size: " + LIST.getSize() + "\n"); //deck size
 
                 System.out.println("How many cards would you like to remove? ");
-                choice = input.nextInt();
-                cardsRemoved = new Card[choice];
+                choice = input.nextInt(); //i want 2 cards
+                cardsRemoved = new Card[choice];    //create array to store 2 cards
 
 
                 for (int i = 0; i < choice; i++) {
@@ -60,28 +60,22 @@ public class Game {
 
                     try {
                         numCards = input.nextInt();
-
-
-                    }
-                    catch (NullPointerException e) {
-                        System.out.println("ERROR: You must enter a valid index!" +
-                                ".... Try again");
+                    } catch (NullPointerException e) {
+                        System.out.println("ERROR: You must enter a valid index!" +".... Try again");
 
                     }
 
                     System.out.println("Card chosen: " + LIST.getElement(numCards) + "\n");
-                    cardsRemoved[i] = LIST.getElement(numCards);
+                    cardsRemoved[i] =  LIST.getElement(numCards);
                     removeCards.push(numCards);
 
-                    sum+= cardsRemoved[i].getPoints();
+                    sum += cardsRemoved[i].getPoints();
 
                 }
                 //loop to check if the card values add to eleven
-                for (int j = 0; j <cardsRemoved.length-1; j++)
-                {
+                for (int j = 0; j < cardsRemoved.length; j++) {
 
-                    if(sum==11)
-                    {
+                    if (sum == 11) {
                         System.out.println("VALID MOVE\n");
                         Card addCard;
                         LIST.remove(removeCards.pop());
@@ -90,19 +84,18 @@ public class Game {
                         LIST.add(LIST, addCard);
 
                         points += 10;
-                    }
-                    else {
+                    } else {
 
                         System.out.println("\nINVALID MOVE!\n");
                         //  LIST.add(LIST, cardsRemoved[j]);
-                        System.out.println("Game lost...... Aqcuired points: "+points);
+                        System.out.println("Game lost...... Aqcuired points: " + points);
 
                         break;
                     }
 
                 }
 
-                sum =0;
+                sum = 0;
             }
         }
         //if the user chooses 3 as the menu item, the application ends

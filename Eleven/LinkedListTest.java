@@ -1,11 +1,12 @@
 package Eleven;//CLASS FOR TESTING THE ADDING AND REMOVAL OF CARD ELEMENTS FROM A LINKED LIST.
+
 import java.util.Scanner;
 
 public class LinkedListTest
 {
     private static final int CARDNUM =9;
     private static final Card [] cards = new Card[CARDNUM];
-    private static LinkedList<Card> play = new LinkedList<>();
+    private static LinkedList<Card> play =  new LinkedList<Card>();
 
     public LinkedListTest()
     {
@@ -15,7 +16,7 @@ public class LinkedListTest
         for(int i=0; i <CARDNUM; i++)
         {
             //cards being added to card array
-            cards[i] = deck.deal();
+            cards[i] =  deck.deal();
             play.add(play, cards[i]);
         }
     }
@@ -42,7 +43,7 @@ public class LinkedListTest
             catch(Exception e){System.out.println("ERROR!");}
 
             System.out.println("Card removed was, " + play.getElement(remove));
-             play.getElement(remove);
+            play.getElement(remove);
             System.out.println("Index: " + remove);
             System.out.println("The card ranks is: " + play.getElement(remove).getRank()+"\n");
 

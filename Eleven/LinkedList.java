@@ -61,6 +61,10 @@ public class LinkedList<T>{
     public T getElement(int index) throws NullPointerException {
         Node f = head;
 
+//        if(index == size){
+//            index--;
+//        }
+
         if (index > size || index < 0) throw new IndexOutOfBoundsException("ERROR: Invalid index");
 
         if (index < size && index > 0) {
