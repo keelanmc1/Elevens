@@ -29,7 +29,7 @@ public class DeckTest
         }
         System.out.println(cards.printList(cards));
         //the current size of the deck is currently inaccurate
-        System.out.println("Current size of the deck: " + deck.getSize());
+      //  System.out.println("Current size of the deck: " + .getSize());
 
             System.out.println("\nHow many cards would you like to remove?");
             int remove = input.nextInt();

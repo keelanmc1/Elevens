@@ -12,10 +12,11 @@ public class Stack <T> implements StackInterface <T>
 
     public void push (T newEntry)
     {
+        size++;
         MyNode<T> newNode = new MyNode<T>(newEntry);
         newNode.setNext(topNode);
         topNode = newNode;
-        size++;
+
     }
 
     public T pop()
@@ -49,6 +50,11 @@ public class Stack <T> implements StackInterface <T>
     {
         Stack<Integer> stack = new Stack<Integer>();
 
+        for(int j=0; j<10; j++)
+        {
+            stack.push(j);
+            System.out.println(stack.pop());
+        }
         stack.push(1);
         stack.push(2);
         stack.push(3);
@@ -70,10 +76,7 @@ public class Stack <T> implements StackInterface <T>
         stack.push(5);
         stack.push(6);
 
-        for (int i=0; i< stack.getSize()+1; i++)
-        {
-            System.out.println("Stack popped in a loop " +stack.pop());
-        }
+
         System.out.println("Stack empty is "+stack.isEmpty());
         stack.clear();
         System.out.println("Stack empty is "+stack.isEmpty());

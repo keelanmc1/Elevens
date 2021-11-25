@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class LinkedListTest
 {
-    private static final int CARDNUM =9;
-    private static final Card [] cards = new Card[CARDNUM];
-    private static LinkedList<Card> play = new LinkedList<>();
+    private final int CARDNUM =9;
+    private final Card [] cards = new Card[CARDNUM];
+    private LinkedList<Card> play = new LinkedList<>();
 
     public LinkedListTest()
     {
@@ -26,7 +26,7 @@ public class LinkedListTest
         Scanner input = new Scanner (System.in);
         int remove=0;
 
-        System.out.println("Deck: \n"+play.printList(play));
+        System.out.println("Deck: \n"+game.play.printList(game.play));
 
         //Need to validate this part to ensure 1-3 cards are picked: no more no less
         System.out.println("How many cards would you like to remove?");
@@ -41,13 +41,17 @@ public class LinkedListTest
             try{ remove = input.nextInt();}
             catch(Exception e){System.out.println("ERROR!");}
 
-            System.out.println("Card removed was, " + play.getElement(remove));
-             play.getElement(remove);
-            System.out.println("The card ranks is: " + play.getElement(remove).getRank()+"\n");
+            System.out.println("Card removed was, " + game.play.getElement(remove));
+             game.play.getElement(remove);
+            System.out.println("The card ranks is: " + game.play.getElement(remove).getRank()+"\n");
 
           //  play.remove(remove);
 
         }
+
+        Card aCard = new Card(1,2);
+       game.play.addLast(game.play,aCard );
+        System.out.println("Card card added to last: " +game.play.printList(game.play));
         //After i remove the elements by index, Look up cards value using the getElement method
         //then compare the two if equal 11, valid move otherwise invalid move -- then they dont get removed
 

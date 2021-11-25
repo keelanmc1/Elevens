@@ -46,16 +46,27 @@ public class LinkedList <T>
         }
         return list;
     }
+    public LinkedList<T> addLast (LinkedList<T> list, T data)
+    {
+        Node newNode = new Node(data);
+       newNode.next = null;
+       last.next = newNode;
+       last = newNode;
+
+       return list;
+    }
                                                                                                                         //method to print a string representation of the linked list
-    public String printList(LinkedList list)
+    public String printList(LinkedList <T> list)
     {
         Node currentNode = list.head;
-        String str = "";
+        String str="";
+        int c=0;
         while(currentNode !=null)
         {
-            str+= currentNode.data;
+            str+=c +". " +currentNode.data;
             str +="\n";
             currentNode = currentNode.next;
+            c++;
         }
         return str;
 
@@ -83,35 +94,43 @@ public class LinkedList <T>
         if(index == size) return last.data;
         return null;
      }
-
-
-    public Node remove (int index) throws NullPointerException
+    public void shuffle(LinkedList<Card> list)
     {
-        if(index <0 || index > size) throw new IndexOutOfBoundsException("ERROR: Invalid index!");
-        Node newNode = head;
-        for(int i =0; i<index; i++)
+        if(this.getSize()>4)
         {
+            for(int i=0; i<this.getSize(); i++)
+            {
+                Node currentNode = head;
+                Node next = head.next;
+
+                for(int j=0; j<this.getSize()-1; j++)
+                {
+                    Node temp = currentNode;
+                    currentNode = next;
+                    next = temp;
+                    currentNode = next;
+                    next = next.next;
+                }
+            }
+
+        }
+    }
+
+    public LinkedList  remove  (int index) throws NullPointerException {
+        if (index < 0 || index > size) throw new IndexOutOfBoundsException("ERROR: Invalid index!");
+        Node newNode = head;
+        for (int i = 0; i < index; i++) {
             newNode = newNode.next;
         }
-        if(index == 0) head = newNode.next;
+        if (index == 0) head = newNode.next;
 
-        else{
+        else {
             newNode.previous.next = newNode.next;
         }
         size--;
-        return newNode;
-    }
-
-    public void shuffleList(LinkedList <T> list)
-    {
-         Node currentNode = head;
-         Node next = currentNode.next;
-         currentNode = next;
-         next = next.next;
+        return null;
     }
 
     public  int getSize(){return size;}
-
-
 
 }

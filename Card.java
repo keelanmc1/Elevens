@@ -1,13 +1,13 @@
 
 import java.util.Random;
-public class Card  extends MyNode
+public class Card extends MyNode
 {
     private final int RANK, SUIT;
-    private static final String [] RANKS = {"Ace","2", "3","4","5","6","7","8","9","10","Jack","Queen","King"};
-    private static final String [] SUITS = {"Diamonds", "Clubs","Spades", "Hearts"};
-    private static final int [] POINTS ={1,2,3,4,5,6,7,8,9,10,12,13,14};
+    private final String [] RANKS = {"2", "3","4","5","6","7","8","9","10","Ace","Jack","Queen","King"};
+    private final String [] SUITS = {"Diamonds", "Clubs","Spades", "Hearts"};
+    private final int [] POINTS ={2,3,4,5,6,7,8,9,10,1,11,12,13};
 
-    private static final Random GENERATOR = new Random();
+    private static final Random GENERATOR = new Random(100);
 
     public Card ()
     {
