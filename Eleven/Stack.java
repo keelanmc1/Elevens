@@ -2,7 +2,7 @@ package Eleven;
 
 import java.util.EmptyStackException;
 
-public class Stack <T> implements StackInterface <T>
+public class Stack<T> implements StackInterface<T>
 {
     private MyNode<T> topNode;
     private static int size = 0;
@@ -47,8 +47,8 @@ public class Stack <T> implements StackInterface <T>
     }
     public int getSize(){return size;}
 
-    public static void main(String [] args)
-    {
+
+    public void test(){
         Stack<Integer> stack = new Stack<Integer>();
 
         stack.push(1);
@@ -79,5 +79,11 @@ public class Stack <T> implements StackInterface <T>
         System.out.println("Stack empty is "+stack.isEmpty());
         stack.clear();
         System.out.println("Stack empty is "+stack.isEmpty());
+    }
+
+    public static void main(String [] args)
+    {
+        Stack s = new Stack();
+        s.test();
     }
 }

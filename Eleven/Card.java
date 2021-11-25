@@ -1,38 +1,47 @@
 package Eleven;
 
 import java.util.Random;
-public class Card  extends MyNode
-{
-    private final int RANK, SUIT;
-    private  final String [] RANKS = {"Ace","2", "3","4","5","6","7","8","9","10","Jack","Queen","King"};
-    private  final String [] SUITS = {"Diamonds", "Clubs","Spades", "Hearts"};
-    private  final int [] POINTS ={1,2,3,4,5,6,7,8,9,10,12,13,14};
 
-    private static final Random GENERATOR = new Random();
+public class Card extends MyNode {
+    protected int rank;
+    protected int suit;
+    protected boolean isFace = false;
+    protected Card head;
+    protected int cardValue;
+    protected Random GENERATOR = new Random();
 
-    public Card ()
-    {
-        RANK = GENERATOR.nextInt(RANKS.length);
-        SUIT = GENERATOR.nextInt(SUITS.length);
+    public Card(int cardValue, int suit) {
+        super(cardValue);
+       if (isValidPoint(cardValue) == true){
+           this.cardValue =cardValue;
+       }
+       if (isValidSuit(suit) == true){
+           this.suit = suit;
+       }
     }
 
-    public Card (int r, int s)
-    {
-        RANK = r;
-        SUIT =s;
+    public void insertNewCard(Card c){
+        if(size == 0){
+            head = c;
+            head.setNext(null);
+        }
     }
 
-    public String getRank()
-    {
-        return RANKS[RANK];
+    public boolean isValidPoint(int p){
+        return (p >= 1 && p <= 13);
     }
-    public String getSuit(){return SUITS[SUIT]; }
-    public int getRankValue(){return RANK; }
-    public int getPoints(){return POINTS[RANK];}
 
-    public String toString(){return getRank() +" of " +getSuit(); }
-
+    public boolean isValidSuit(int s){
+        return (s == 0 || s == 1 || s == 2 || s ==3);
+    }
 
 
+    public Card getHead() {
+        return head;
+    }
 
+    public int getRank() {return rank;}
+    public int getSuit() {return suit;}
+    public int getPoints() {return cardValue;}
+    public String toString() {return getRank() + " of " + getSuit();}
 }

@@ -1,64 +1,57 @@
 package Eleven;
+import Eleven.*;
+public class MyNode<Card> {
+    protected String data;
+    protected Card next;
+    protected Card head;
+    protected int size = 0;
 
-public class MyNode <T>
-{
-    private T data;
-    private MyNode<T> next;
-    private MyNode<T> head;
-
-    public MyNode()
-    {
+    public MyNode() {
         data = null;
-        next=null;
-    }
-
-    public MyNode(T dataValue)
-    {
-        data = dataValue;
         next = null;
     }
-    public T getData()
-        {
-            return data;
 
-        }
+    public MyNode(Card c) {
+        next = null;
+        size++;
+    }
 
-        public void setData(T dataValue)
-        {
-            data = dataValue;
-        }
+    public MyNode(int rank, int suit){
 
-        public MyNode<T> getNext()
-        {
-            return next;
-        }
+    }
 
-        public void setNext(MyNode<T> nextNode)
-        {
-            next = nextNode;
-        }
+    public void increaseSize() {
+        size++;
+    }
+
+    public void decreaseSize() {
+        size--;
+    }
 
 
-        public void test(){
-            MyNode<Integer> node1= new MyNode<Integer>(1);
-            MyNode<Integer> node2 = new MyNode<Integer>(2);
-            MyNode<Integer> node3 = new MyNode<Integer>(3);
+    public Card getNext() {
+        return next;
+    }
 
-            node1.setNext(node2);
-            node2.setNext(node3);
-
-            System.out.println("The value of node1 is " +node1.getData());
-            System.out.println("The value of node2 is " +node1.getNext().getData());
-            System.out.println("The value of node3 is " +node1.getNext().getNext().getData());
-
-        }
+    public void setNext(Card nextCard) {
+        next = nextCard;
+    }
 
 
-        public static void main(String [] args)
-        {
-            MyNode node = new MyNode();
-            node.test();
-        }
+    public void test() {
+        Card c1 = new Card(1, 1);
+        MyNode<Card> node1 = new MyNode<Card>(c1);
+        MyNode<Card> node2 = new MyNode<Card>(c1);
+        MyNode<Card> node3 = new MyNode<Card>(c1);
+
+
+    }
+
+
+    public static void main(String[] args) {
+        MyNode node = new MyNode();
+        node.test();
+    }
 
 
 }

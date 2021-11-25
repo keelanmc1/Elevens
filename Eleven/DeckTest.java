@@ -6,7 +6,7 @@ public class DeckTest {
     private LinkedList cards = new LinkedList<>();
 
     //Testing the stack ADT for the replay feature.
-    private Stack replay = new Stack<>();
+    private Stack replay = new Stack();
     private Card[] cardRemoved;
 
     public void test() {
